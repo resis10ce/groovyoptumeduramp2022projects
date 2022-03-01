@@ -3,11 +3,11 @@ package com.optum.day1project.utilities
 // Booleans:
 def b1 = false
 def b2 = true
-assert !b1
-assert b2
+assert !b1 : "Failed"
+assert b2  :"Data Failed"
  
 // Strings:
-def s1 = ''
+def s1 = null
 def s2 = 'abc'
 assert !s1 //is empty
 assert s2 //non empty
@@ -49,9 +49,9 @@ assert ma2
 if (true) assert true
 else assert false
 if (1) {
-assert true
+println "Number has value"
 } else {
-assert false
+println "Number is not having value"
 }
 if ('non-empty') assert true
 else if (['x']) assert false
@@ -59,6 +59,18 @@ else assert false
 if (0) assert false
 else if ([]) assert false
 else assert true
+
+switch (10)
+{
+   case 0 : assert false ; break
+   case 0..9 : assert false ; break
+   case [8,9,11] : assert false ; break
+   case Float : assert false ; break
+   case {it%3 == 0}: assert false ; break
+   case ~/../ : assert true ; break
+   default : assert false ; break
+}
+
 
 
 def a = 1
