@@ -11,7 +11,7 @@ class Doctor {
 	//associated- one to many
 	private List<Address> addressList;
 	private String email
-	private String regNo
+	private  String regNo
 	private Gender gender
 
 	@Override
@@ -32,6 +32,7 @@ class Doctor {
 		// TODO Auto-generated method stub
 		return 1
 	}
+
 	
 	
 	

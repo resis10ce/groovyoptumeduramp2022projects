@@ -12,6 +12,7 @@ class DoctorApp {
 		//create object
 		def doctor1=new Doctor()
 		doctor1.mobileNo=5969879
+		doctor1.regNo=93459643
 		doctor1.email="Parmeswari@gmail.com"
 		doctor1.gender=Gender.FEMALE
 		doctor1.firstName="Parameswari"
