@@ -8,6 +8,7 @@ class Doctor {
 	private long mobileNo
 	private String firstName;
 	private String lastName;
+	//associated- one to many
 	private List<Address> addressList;
 	private String email
 	private String regNo
