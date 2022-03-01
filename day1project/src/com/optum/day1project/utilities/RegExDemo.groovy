@@ -10,3 +10,14 @@ def matches=(input =~ pattern)
 
 assert matches[0] =~ '8 FEB 2022'
 assert matches[1] =~ '03 MAR 2022'
+
+//validate email
+def email="Parameswari@gmail.com"
+assert email =~ /\S+@\S+\.\S+/
+
+//validate name
+def name="Parameswari"
+
+assert name =~ /^[a-zA-Z]{5,25}$/
+
+
