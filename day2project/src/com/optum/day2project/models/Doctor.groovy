@@ -8,7 +8,7 @@ class Doctor {
 	private long mobileNo
 	private String firstName;
 	private String lastName;
-	private Address[] addressList;
+	private List<Address> addressList;
 	private String email
 	private String regNo
 	private Gender gender
