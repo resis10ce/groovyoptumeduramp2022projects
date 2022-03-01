@@ -7,8 +7,11 @@ def page=new MarkupBuilder()
 page.html{
 	head {title 'Optum'}
 	body { 
-		
-		ul{
+		h1 'Optum Project Architecture'
+		div{
+			p 'Solution Architecture'
+		}
+		ol{
 			for(count in 1..5) {
 				li "Project $count"
 			}
