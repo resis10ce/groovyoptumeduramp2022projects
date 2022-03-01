@@ -13,5 +13,7 @@ class DoctorApp {
 		doctor2.mobileNo=3274769
 		println "Doctor Name $doctor1"		
 		println doctor1.equals(doctor2)
+		println doctor1.hashCode()
+		println doctor2.hashCode()
 	}
 }

@@ -23,7 +23,13 @@ class Doctor {
 	public boolean equals(Object obj) {
 		// TODO Auto-generated method stub
 		Doctor doctorObj=obj;
-		return this.mobileNo == doctorObj.mobileNo
+		return doctorObj.mobileNo==this.mobileNo
+	}
+
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return 1
 	}
 	
 	
