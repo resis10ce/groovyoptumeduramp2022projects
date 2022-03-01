@@ -5,6 +5,6 @@ filePath="src/com/optum/day2project/resources/product.xml"
 
 def products=new XmlSlurper().parse(new File(filePath))
 
-products.forEach { t -> 
-	println t
+for(Object obj : products.Product) {
+	println "$obj.Name ===> $obj.Price"
 }
