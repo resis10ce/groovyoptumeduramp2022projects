@@ -7,9 +7,11 @@ class DoctorApp {
 	static void main(args) {
 		// TODO Auto-generated method stub
 		//create object
-		def doctor=new Doctor()
-		println "Doctor Name $doctor.firstName"
-		
-		
+		def doctor1=new Doctor()
+		doctor1.mobileNo=5969879
+		def doctor2=new Doctor()
+		doctor2.mobileNo=3274769
+		println "Doctor Name $doctor1"		
+		println doctor1.equals(doctor2)
 	}
 }
