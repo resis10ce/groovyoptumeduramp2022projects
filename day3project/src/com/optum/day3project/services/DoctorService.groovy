@@ -25,7 +25,7 @@ class DoctorService implements DoctorFacade {
 		println properties.createDoctorTable
 		
 		conn.execute(properties.createDoctorTable)
-		//conn.close()
+		conn.close()
 		status=true;
 		return status;
 	}
@@ -33,8 +33,34 @@ class DoctorService implements DoctorFacade {
 	@Override
 	public boolean addDoctor(Doctor doctor) {
 		// TODO Auto-generated method stub
+		Properties properties=new Properties();
+		File propertyFile=new File(DBHelper.getPropertyFileName())
+		propertyFile.withInputStream { properties.load(it) }
 		
-		return true;
+				//establish db connection
+		conn=DBHelper.getConnection()
+		println properties.saveDoctor
+		List<Object> params=new ArrayList<Object>();
+		params.add(doctor.mobileNo)
+		params.add(doctor.firstName)
+		params.add(doctor.lastName)
+		params.add(doctor.email)
+		params.add(doctor.gender.toString())
+		params.add(doctor.regNo)
+		params.add(doctor.addressList)
+		conn.connection.autoCommit=false
+		try {
+					
+	       conn.executeInsert properties.saveDoctor, params
+		   status=true
+		   conn.commit()
+		}
+		catch(Exception ex)
+		{
+			conn.rollback()
+			println("Transaction rollback")
+		}	
+		return status;
 	}
 
 	@Override
