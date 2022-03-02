@@ -1,9 +1,11 @@
-package com.eric.inventory.clients
+package com.optum.day3project.parsers
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+//web scraping
+
 def url = "http://rates.goldenchennai.com/";
 def document = Jsoup.connect(url).get();
 def goldDetails = document.select('#zh')
