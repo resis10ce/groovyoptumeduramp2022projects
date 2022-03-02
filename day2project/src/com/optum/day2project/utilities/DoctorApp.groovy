@@ -1,5 +1,4 @@
 package com.optum.day2project.utilities
-
 import com.optum.day2project.models.Address
 import com.optum.day2project.models.Doctor
 import com.optum.day2project.models.Gender

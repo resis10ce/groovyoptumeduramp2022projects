@@ -8,12 +8,32 @@ import groovy.sql.Sql
 class DoctorService implements DoctorFacade {
 	
 	private Sql conn
+	private Properties properties
+	private File propertyFile
+	private boolean status
 	
-
+	
+	
+    public boolean createDoctorTable() {
+		//loading the properties
+		Properties properties=new Properties();
+		File propertyFile=new File(DBHelper.getPropertyFileName())
+		propertyFile.withInputStream { properties.load(it) }
+		
+				//establish db connection
+		conn=DBHelper.getConnection()
+		println properties.createDoctorTable
+		
+		conn.execute(properties.createDoctorTable)
+		//conn.close()
+		status=true;
+		return status;
+	}
+	
 	@Override
 	public boolean addDoctor(Doctor doctor) {
 		// TODO Auto-generated method stub
-		conn=DBHelper.getConnection()
+		
 		return true;
 	}
 

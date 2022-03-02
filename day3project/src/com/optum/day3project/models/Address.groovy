@@ -1,6 +1,7 @@
 package com.optum.day3project.models
 
 class Address {
+	long addressId;
 	String doorNo;
 	String streetName;
 	String city;
