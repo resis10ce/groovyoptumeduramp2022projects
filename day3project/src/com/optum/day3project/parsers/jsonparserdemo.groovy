@@ -30,7 +30,11 @@ users.each {
 	println "$user.name,$user.email"
 }
 
-
-
+fileName=args[1]
+def countries=new JsonSlurper().parse(new File(fileName))
+countries.each {
+	country->
+	println "$country.name"
+}
 
 
