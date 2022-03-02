@@ -2,6 +2,7 @@ package com.optum.day3project.services
 
 import com.optum.day3project.models.Address
 import com.optum.day3project.models.Doctor
+import com.optum.day3project.models.Gender
 import com.optum.day3project.helpers.DBHelper
 
 import groovy.sql.Sql
@@ -11,7 +12,8 @@ class DoctorService implements DoctorFacade {
 	private Properties properties
 	private File propertyFile
 	private boolean status
-	
+	private Doctor doctor
+	private List<Doctor> doctorList
 	
 	
     public boolean createDoctorTable() {
@@ -66,7 +68,27 @@ class DoctorService implements DoctorFacade {
 	@Override
 	public List<Doctor> getAllDoctors() {
 		// TODO Auto-generated method stub
-		return null;
+		doctorList=new ArrayList<Doctor>()
+		Properties properties=new Properties();
+		File propertyFile=new File(DBHelper.getPropertyFileName())
+		propertyFile.withInputStream { properties.load(it) }		
+		//establish db connection
+		conn=DBHelper.getConnection()		
+		println properties.getDoctors
+		conn.query(properties.getDoctors) { resultSet ->
+			while (resultSet.next()) {
+			  doctor=new Doctor();
+			  doctor.mobileNo=resultSet.getLong(1)
+			  doctor.firstName=resultSet.getString(2)
+			  doctor.lastName=resultSet.getString(3)
+			  doctor.email=resultSet.getString(4)
+			  doctor.gender= Gender.valueOf(resultSet.getString(5))
+			  doctor.regNo=resultSet.getString(6)
+			  doctorList.add(doctor);
+			 
+			}
+		  }
+		  return doctorList
 	}
 
 	@Override
